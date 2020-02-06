@@ -17,8 +17,8 @@ RUN     set -eux ; \
         unzip /var/www/latest.zip -d /var/www ; \
         mv /var/www/wordpress /var/www/html ; \
         chown -R www-data.www-data /var/www/html ; \
-        ln -sfT /dev/stdout /var/log/apache2/access.log ; \
-        ln -sfT /dev/stderr /var/log/apache2/error.log
+        ln -sf /dev/stdout /var/log/apache2/access.log ; \
+        ln -sf /dev/stderr /var/log/apache2/error.log
 
 EXPOSE  80
 ENTRYPOINT [ "/usr/sbin/apachectl", "-D", "FOREGROUND"]
